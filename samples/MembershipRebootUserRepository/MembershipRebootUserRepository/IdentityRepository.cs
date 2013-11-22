@@ -1,4 +1,5 @@
 ﻿using BrockAllen.MembershipReboot;
+using BrockAllen.MembershipReboot.MongoDb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,11 @@ namespace MembershipRebootUserRepository
         {
             var settings = SecuritySettings.FromConfiguration();
             settings.RequireAccountVerification = false;
+
+            MongoDatabase database = new MongoDatabase("MongoDb");
             var config = new MembershipRebootConfiguration(settings);
-            this.userSvc = new UserAccountService(config, new BrockAllen.MembershipReboot.Ef.DefaultUserAccountRepository());
-            this.groupSvc = new GroupService(new BrockAllen.MembershipReboot.Ef.DefaultGroupRepository());
+            this.userSvc = new UserAccountService(config, new MongoUserAccountRepository(database));
+            this.groupSvc = new GroupService(new MongoGroupRepository(database));
         }
 
         public IdentityRepository(UserAccountService userSvc, GroupService groupSvc)

@@ -149,7 +149,7 @@ namespace Thinktecture.IdentityServer.Web.Controllers
 
             try
             {
-                UserManagement.CreateUser(userName, password);
+                UserManagement.CreateUser(userName, password,"admin@admin.com");
             }
             catch (Exception ex)
             {

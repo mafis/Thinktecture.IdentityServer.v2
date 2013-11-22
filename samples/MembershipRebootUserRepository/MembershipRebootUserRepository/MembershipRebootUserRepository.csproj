@@ -35,9 +35,6 @@
     <Reference Include="BrockAllen.MembershipReboot">
       <HintPath>..\packages\BrockAllen.MembershipReboot.3.0.1\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
     </Reference>
-    <Reference Include="BrockAllen.MembershipReboot.Ef">
-      <HintPath>..\packages\BrockAllen.MembershipReboot.Ef.3.0.0\lib\net45\BrockAllen.MembershipReboot.Ef.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -64,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\CIC.IdentityManager\src\BrockAllen.MembershipReboot.MongoDb\BrockAllen.MembershipReboot.MongoDb.csproj">
+      <Project>{239ce743-da22-4a3c-8a31-699cc33476ce}</Project>
+      <Name>BrockAllen.MembershipReboot.MongoDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Libraries\Thinktecture.IdentityServer.Core\Thinktecture.IdentityServer.Core.csproj">
       <Project>{38ce5c59-909e-4da6-8e1d-7eee7312ca9a}</Project>
       <Name>Thinktecture.IdentityServer.Core</Name>
